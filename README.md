@@ -6,7 +6,7 @@ Used to split log lines into groups which are then counted and compared to each
 other to identify patterns or anomalies; used with STDIN or a file piped in as
 input.
 
-Example usage: `echo "red dog\nblue dog\nyellow dog\npurple dog\n" | split-group "(red|blue)" yellow`
+Example usage: `echo "red dog\nblue dog\nyellow dog\npurple dog\n" | ./utils split-group "(red|blue)" yellow`
 
 ```
 Matches:
