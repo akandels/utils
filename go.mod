@@ -1,4 +1,4 @@
-module akandels/log-utils
+module akandels/utils
 
 go 1.23.2
 
