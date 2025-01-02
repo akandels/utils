@@ -25,3 +25,21 @@ Flags:
 | ---- | ----------- | ------- |
 | --log-non-matches, -x | Log non-matching lines, helpful for gradually adding patterns initially | Off |
 | --multi-match, -m | Allow lines to match multiple patterns | Off |
+
+## split-match
+
+Given a regular expression with a single capture group, processes log lines from STDIN
+and groups by the value captured. Useful for counting log lines by IP address, customer, etc.
+
+Example usage:
+
+`echo '{"company_id": 123}\n{"company_id: 124}\n{"company_id": 123}\n' | ./utils split-match 'company_id":\s*(\d+)'`
+
+Results:
+
+```
+Matches:
+NO_MATCH: 0
+123:      2 (66%)
+124:      1 (33%)
+```

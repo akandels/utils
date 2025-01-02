@@ -33,6 +33,23 @@ func main() {
 					return err
 				},
 			},
+
+			{
+				Name:    "split-match",
+				Usage:   "given a regular expression with a capture group, split matching lines by the value of that group",
+        Flags: []cli.Flag{
+          &cli.BoolFlag{
+            Name: "log-non-matches",
+            Aliases: []string{"x"},
+            Usage: "log lines that don't match the pattern",
+          },
+        },
+				Aliases: []string{"sm"},
+				Action: func(cCtx *cli.Context) error {
+					_, err := splitMatch(cCtx.Args().First(), cCtx.Bool("log-non-matches"))
+					return err
+				},
+			},
 		},
 	}
 
